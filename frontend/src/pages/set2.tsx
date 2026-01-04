@@ -1,12 +1,9 @@
-import { getset1, getset2 } from "@/api/api";
+import { getset2 } from "@/api/api";
 
 import { DataTable } from "@/components/data-table";
-import { ExpenseDetailDialog } from "@/components/tabledialog";
-import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
-import type { Expense, UserTable } from "@/schema/schema";
-import type { Set2 as Setrow, TopDay, UserTotalRow } from "@/types/types";
+import type { Set2 as Setrow } from "@/types/types";
 
 import type { ColumnDef } from "@tanstack/react-table";
 import { useEffect, useState } from "react";

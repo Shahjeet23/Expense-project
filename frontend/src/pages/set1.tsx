@@ -2,9 +2,7 @@ import { getset1 } from "@/api/api";
 
 import { DataTable } from "@/components/data-table";
 import { ExpenseDetailDialog } from "@/components/tabledialog";
-import { Button } from "@/components/ui/button";
 
-import type { Expense, UserTable } from "@/schema/schema";
 import type { TopDay, UserTotalRow } from "@/types/types";
 
 import type { ColumnDef } from "@tanstack/react-table";

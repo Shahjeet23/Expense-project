@@ -4,7 +4,7 @@ import Home from "./pages/home";
 import Users from "./pages/Users";
 import Categories from "./pages/Category";
 import { useEffect } from "react";
-import { useAppDispatch, useAppSelector } from "./store/hooks";
+import { useAppDispatch } from "./store/hooks";
 import { getcate, getusers } from "./features/extrareducer";
 import Set1 from "./pages/set1";
 import { Setpage2 } from "./pages/set2";
@@ -19,8 +19,6 @@ function App() {
     };
     fetchUsers();
   }, []);
-  const users = useAppSelector((state) => state.expense.users);
-  const categories = useAppSelector((state) => state.expense.categories);
 
   return (
     <Routes>

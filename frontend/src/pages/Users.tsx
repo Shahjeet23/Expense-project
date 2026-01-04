@@ -1,4 +1,4 @@
-import { addUser, deleteuser, getUsers, updateUser } from "@/api/api";
+import { addUser, deleteuser, updateUser } from "@/api/api";
 import { DataTable } from "@/components/data-table";
 import { ConfirmDialog } from "@/components/deletedialog";
 import { Button } from "@/components/ui/button";
@@ -9,7 +9,6 @@ import { useAppDispatch, useAppSelector } from "@/store/hooks";
 
 import { IconPencil, IconTrash } from "@tabler/icons-react";
 import type { ColumnDef } from "@tanstack/react-table";
-import { useEffect } from "react";
 import { toast } from "sonner";
 
 const Users = () => {
@@ -70,7 +69,7 @@ const Users = () => {
 
     {
       id: "actions",
-      header: "",
+      header: "Actions",
       cell: ({ row }) => (
         <div className="flex items-center gap-2">
           <UserDialog
@@ -140,13 +139,20 @@ const Users = () => {
     }
   };
   return (
-    <>
-      <DataTable data={users} columns={columns} key={JSON.stringify(users)}>
+    <div className="mt-4">
+      <h1 className="text-2xl font-bold">User</h1>
+      <DataTable
+        data={users}
+        columns={columns}
+        key={JSON.stringify(users)}
+        filteron="name"
+        filterpalceholder="Filter names..."
+      >
         <UserDialog mode="add" onSubmit={handleAddUser}>
           <Button>Add User</Button>
         </UserDialog>
       </DataTable>
-    </>
+    </div>
   );
 };
 

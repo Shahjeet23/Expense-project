@@ -21,7 +21,6 @@ import {
   type SortingState,
   type VisibilityState,
 } from "@tanstack/react-table";
-import { z } from "zod";
 
 import { Button } from "@/components/ui/button";
 
@@ -75,11 +74,15 @@ export function DataTable({
   columns,
   children,
   filterpalceholder,
+  filteron,
+  showfilter = true,
 }: {
   data: Record<string, any>[];
   columns: ColumnDef<any>[];
   children?: React.ReactNode;
   filterpalceholder?: string;
+  filteron?: string;
+  showfilter?: boolean;
 }) {
   const [rowSelection, setRowSelection] = React.useState({});
   const [columnVisibility, setColumnVisibility] =
@@ -121,15 +124,23 @@ export function DataTable({
   return (
     <>
       <div className="w-full">
-        <div className="flex items-center py-4 z-10">
-          <Input
-            placeholder={filterpalceholder || "Filter emails..."}
-            value={(table.getColumn("email")?.getFilterValue() as string) ?? ""}
-            onChange={(event) =>
-              table.getColumn("email")?.setFilterValue(event.target.value)
-            }
-            className="max-w-sm"
-          />
+        <div className="flex items-center py-4 z-10 gap-2">
+          {showfilter && (
+            <Input
+              placeholder={filterpalceholder || "Filter emails..."}
+              value={
+                (table
+                  .getColumn(filteron ?? "email")
+                  ?.getFilterValue() as string) ?? ""
+              }
+              onChange={(event) =>
+                table
+                  .getColumn(filteron ?? "email")
+                  ?.setFilterValue(event.target.value)
+              }
+              className="max-w-sm"
+            />
+          )}
           {children}
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
@@ -216,7 +227,7 @@ export function DataTable({
             {table.getFilteredRowModel().rows.length} row(s)
           </div>
           <div className="flex w-full items-center gap-8 lg:w-fit">
-            <div className="hidden items-center gap-2 lg:flex">
+            <div className="hidden items-center gap-2 lg:flex justify-center mt-2">
               <Label htmlFor="rows-per-page" className="text-sm font-medium">
                 Rows per page
               </Label>
@@ -241,7 +252,7 @@ export function DataTable({
               </Select>
             </div>
             <div className="mt-3 flex">
-              <div className="flex w-fit items-center justify-center text-sm font-medium">
+              <div className="flex w-fit items-center justify-center text-sm font-medium mr-2">
                 Page {table.getState().pagination.pageIndex + 1} of{" "}
                 {table.getPageCount()}
               </div>

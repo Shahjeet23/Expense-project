@@ -1,13 +1,4 @@
-import {
-  addExpense,
-  addUser,
-  deleteExpense,
-  deleteuser,
-  getExpenses,
-  getUsers,
-  updateExpense,
-  updateUser,
-} from "@/api/api";
+import { addExpense, deleteExpense, updateExpense } from "@/api/api";
 
 import { DataTable } from "@/components/data-table";
 import { ConfirmDialog } from "@/components/deletedialog";
@@ -30,10 +21,9 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { UserDialog } from "@/components/userdialog";
 import { getexpense } from "@/features/extrareducer";
 
-import type { Expense, UserTable } from "@/schema/schema";
+import type { Expense } from "@/schema/schema";
 import { useAppDispatch, useAppSelector } from "@/store/hooks";
 
 import { IconPencil, IconTrash } from "@tabler/icons-react";
@@ -53,12 +43,7 @@ const Home = () => {
     start_date?: string;
     end_date?: string;
   }>({});
-  // const [filters, setFilters] = useState<{
-  //   user_id?: number;
-  //   category_id?: number;
-  //   start_date?: string;
-  //   end_date?: string;
-  // }>({ category_id: -1, user_id: -1 });
+
   const dispatch = useAppDispatch();
   useEffect(() => {
     const fetchData = async () => {
@@ -242,8 +227,8 @@ const Home = () => {
   ];
   return (
     <div className="mt-4">
+      <h1 className="mb-6 text-2xl font-bold">Expenses</h1>
       <div className="flex flex-wrap items-end gap-3 mb-4">
-        {/* USER */}
         <SearchSelect
           className={"w-fit"}
           value={filters.user_id ?? -1}
@@ -259,7 +244,7 @@ const Home = () => {
             }
           }}
         />
-        {/* CATEGORY */}
+
         <Select
           value={filters.category_id?.toString() ?? "-1"}
           onValueChange={(v) => {
@@ -353,6 +338,7 @@ const Home = () => {
       <DataTable
         data={expense}
         columns={columns}
+        filteron="user_name"
         key={JSON.stringify(expense)}
         filterpalceholder="Filter Expenses"
       >

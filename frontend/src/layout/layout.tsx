@@ -17,7 +17,7 @@ const Mainlayout = () => {
       <AppSidebar variant="inset" />
       <SidebarInset>
         <SiteHeader />
-        <div className="flex flex-1 flex-col">
+        <div className="flex flex-1 flex-col p-2">
           <Outlet />
         </div>
       </SidebarInset>

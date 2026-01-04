@@ -35,7 +35,13 @@ export function ExpenseDetailDialog({
           </DialogTitle>
         </DialogHeader>
 
-        <DataTable data={data} columns={columns} />
+        <DataTable
+          data={data}
+          columns={columns}
+          filteron="total_amount"
+          filterpalceholder="Filter Amount"
+          showfilter={false}
+        />
       </DialogContent>
     </Dialog>
   );

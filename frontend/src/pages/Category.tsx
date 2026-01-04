@@ -12,7 +12,6 @@ import type { ColumnDef } from "@tanstack/react-table";
 import { toast } from "sonner";
 
 const Categories = () => {
-  // const [cate, setcate] = useState<CategoriesTable[]>([]);
   const cate = useAppSelector((state) => state.expense.categories);
   const dispatch = useAppDispatch();
   const columns: ColumnDef<CategoriesTable>[] = [
@@ -117,13 +116,21 @@ const Categories = () => {
     }
   };
   return (
-    <>
-      <DataTable data={cate} columns={columns} key={JSON.stringify(cate)}>
+    <div className="mt-4">
+      <h1 className="text-2xl font-bold">Categories</h1>
+
+      <DataTable
+        data={cate}
+        columns={columns}
+        filteron="name"
+        filterpalceholder="Filter categories..."
+        key={JSON.stringify(cate)}
+      >
         <CategoryDialog mode="add" onSubmit={handleAddcate}>
           <Button>Add cate</Button>
         </CategoryDialog>
       </DataTable>
-    </>
+    </div>
   );
 };
 

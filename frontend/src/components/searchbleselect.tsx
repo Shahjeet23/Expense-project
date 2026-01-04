@@ -13,7 +13,6 @@ import {
   CommandInput,
   CommandItem,
 } from "@/components/ui/command";
-import type React from "react";
 
 export type SearchSelectOption = {
   value: number;
