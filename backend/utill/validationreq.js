@@ -3,7 +3,6 @@ const { ZodError } = require("zod");
 const validateRequest = (schema) => {
   return (req, res, next) => {
     try {
-      // 👇 validate ONLY what schema defines
       const dataToValidate = {};
 
       if (schema.shape?.body) dataToValidate.body = req.body;
