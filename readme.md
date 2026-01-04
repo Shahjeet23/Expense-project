@@ -1,6 +1,6 @@
-
 ## Tech Stack
-- **Frontend**: React.js, Redux Toolkit, React Query, TailwindCSS
+
+- **Frontend**: React.js, Redux Toolkit,Shadcn, TailwindCSS
 - **Backend**: Node.js, Express.js
 - **Database**: PostgreSQL
 - **Tools**: Vite, Zod (Validation), PG (PostgreSQL client)
@@ -8,6 +8,7 @@
 ## Setup Instructions
 
 ### Prerequisites
+
 - Node.js (v14 or higher)
 - PostgreSQL (v12 or higher)
 
@@ -19,8 +20,6 @@
    CREATE DATABASE expense_tracker;
    ```
 3. connect to the database and run the following queries to create the tables:
-
-
 
 ### 2. Backend Setup
 
@@ -64,8 +63,6 @@
    ```
 4. Open your browser at `http://localhost:5173`.
 
-
-
 - **backend/**: Contains the Node.js Express server.
   - `config/`: Database connection.
   - `controllers/`: Request handlers.
@@ -77,4 +74,3 @@
   - `src/pages/`: Main views (Dashboard, Stats).
   - `src/features/`: Redux slices and logic.
   - `src/layout/`: App layout wrapper.
-
