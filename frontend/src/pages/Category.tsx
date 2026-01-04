@@ -87,7 +87,7 @@ const Categories = () => {
     try {
       await addCategory(data);
       dispatch(getcate());
-      toast.success("User added successfully");
+      toast.success("Category added successfully");
     } catch (error: any) {
       console.error("Add user failed:", error);
 
@@ -99,7 +99,7 @@ const Categories = () => {
       await updatecategories(id, data);
 
       dispatch(getcate());
-      toast.success("User added successfully");
+      toast.success("Category update successfully");
     } catch (error: any) {
       console.error("Add user failed:", error);
 
@@ -110,7 +110,7 @@ const Categories = () => {
     try {
       await deletecategory(id);
       dispatch(getcate());
-      toast.success("User deleted successfully");
+      toast.success("Category deleted successfully");
     } catch (error: any) {
       toast.error(error?.response?.data?.message || "Failed to delete user");
     }

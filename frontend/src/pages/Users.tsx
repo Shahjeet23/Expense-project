@@ -122,7 +122,7 @@ const Users = () => {
       await updateUser(id, data);
 
       dispatch(getusers());
-      toast.success("User added successfully");
+      toast.success("User Update successfully");
     } catch (error: any) {
       console.error("Add user failed:", error);
 

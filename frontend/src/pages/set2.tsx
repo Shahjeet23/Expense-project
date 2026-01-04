@@ -99,11 +99,14 @@ export const Setpage2 = () => {
   }, []);
 
   return (
-    <DataTable
-      data={expense}
-      columns={set2Columns}
-      key={JSON.stringify(expense)}
-      filterpalceholder="Filter Expenses"
-    />
+    <div className="mt-4">
+      <h1 className="text-2xl font-bold">Set - 2</h1>
+      <DataTable
+        data={expense}
+        columns={set2Columns}
+        key={JSON.stringify(expense)}
+        filterpalceholder="Filter Expenses"
+      />
+    </div>
   );
 };

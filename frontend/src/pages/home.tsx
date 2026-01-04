@@ -61,7 +61,7 @@ const Home = () => {
     try {
       await addExpense(data);
       dispatch(getexpense());
-      toast.success("User added successfully");
+      toast.success("Expense added successfully");
     } catch (error: any) {
       toast.error(error?.response?.data?.message || "Failed to add user");
     }
@@ -71,7 +71,7 @@ const Home = () => {
     try {
       await updateExpense(id, data);
       dispatch(getexpense());
-      toast.success("User updated successfully");
+      toast.success("Expense updated successfully");
     } catch (error: any) {
       toast.error(error?.response?.data?.message || "Failed to update user");
     }
@@ -81,7 +81,7 @@ const Home = () => {
     try {
       await deleteExpense(id);
       dispatch(getexpense());
-      toast.success("User deleted successfully");
+      toast.success("Expense deleted successfully");
     } catch (error: any) {
       toast.error(error?.response?.data?.message || "Failed to delete user");
     }

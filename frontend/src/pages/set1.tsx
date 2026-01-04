@@ -89,12 +89,15 @@ const Set1 = () => {
   ];
 
   return (
-    <DataTable
-      data={expense}
-      columns={mainColumns}
-      key={JSON.stringify(expense)}
-      filterpalceholder="Filter Expenses"
-    />
+    <div className="mt-4">
+      <h1 className="text-2xl font-bold">Set -1</h1>
+      <DataTable
+        data={expense}
+        columns={mainColumns}
+        key={JSON.stringify(expense)}
+        filterpalceholder="Filter Expenses"
+      />
+    </div>
   );
 };
 

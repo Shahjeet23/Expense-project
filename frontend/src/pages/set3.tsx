@@ -50,11 +50,14 @@ export const Setpage3 = () => {
   }, []);
 
   return (
-    <DataTable
-      data={expense}
-      columns={set3Columns}
-      key={JSON.stringify(expense)}
-      filterpalceholder="Filter Expenses"
-    />
+    <div className="mt-4">
+      <h1 className="text-2xl font-bold">Set - 3</h1>
+      <DataTable
+        data={expense}
+        columns={set3Columns}
+        key={JSON.stringify(expense)}
+        filterpalceholder="Filter Expenses"
+      />
+    </div>
   );
 };
